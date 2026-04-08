@@ -1,0 +1,13 @@
+---
+- name: Delete loopbacks
+  hosts: switches
+  gather_facts: false
+  tasks:
+    - name: Create loopback0
+      cisco.ios.ios_config:
+        lines:
+          - no int loopback0
+
+    - name: Save to startup config
+      cisco.ios.ios_config:
+        save_when: modified

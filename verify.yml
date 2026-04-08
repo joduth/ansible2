@@ -1,0 +1,14 @@
+---
+- name: Verify configuration
+  hosts: switches
+  gather_facts: false
+  tasks:
+    - name: Verify configuration
+      cisco.ios.ios_command:
+        commands:
+          - show running-config | section Loopback0
+      register: running_cfg
+
+    - name: Display running-config
+      ansible.builtin.debug:
+        msg: "{{ running_cfg.stdout[0] }}"
