@@ -1,4 +1,5 @@
 ---
+#deletes loopback0 and saves
 - name: Delete loopbacks
   hosts: switches
   gather_facts: false

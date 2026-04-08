@@ -1,4 +1,5 @@
 ---
+#checks for loopback0 will print section of running config if successful
 - name: Verify configuration
   hosts: switches
   gather_facts: false
