@@ -1,6 +1,7 @@
 ---
 #creates loopback0 with address 1.1.1.1
 - name: Configure loopbacks
+  connection: network_cli
   hosts: switches
   gather_facts: false
   tasks:
