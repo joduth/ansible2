@@ -1,0 +1,10 @@
+---
+- name: TAKE A LOOK AT INHERITANCE
+  hosts: all
+  connection: local
+  tasks:
+    - name: TASK 1
+      ansible.builtin.debug:
+        msg: ip name-server {{ item }}
+      loop: "{{dns_servers}}"
+      delegate_to: localhost

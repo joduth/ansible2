@@ -1,0 +1,12 @@
+---
+- name: Testing roles
+  hosts: localhost
+  connection: local
+  roles:
+    - switch
+  tasks:
+    - name: TASK 1
+      ansible.builtin.debug:
+        msg: ip name-server {{ item }}
+      loop: "{{ dns_servers }}"
+      delegate_to: localhost
